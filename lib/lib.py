@@ -10,6 +10,13 @@ def input_float():
             print("Вы ввели не число. Попробуйте снова.")    
 
 
+def input_int():
+    while True:
+        try:
+            n = int(input("Введите число: ")) 
+            return n            
+        except ValueError:
+            print("Вы ввели не число. Попробуйте снова.") 
 
 def input_int_in_range(start, end):
     while True:

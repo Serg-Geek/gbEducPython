@@ -7,7 +7,6 @@
 # - x=-34; y=-30 -> 3
 
 def input_int_in_range():
-    while True:
         try:
             n = int(input("Введите число: "))            
         except ValueError:
