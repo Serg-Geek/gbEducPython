@@ -8,13 +8,13 @@
 # !!ВНИМАНИЕ
 
 # # !!! не использовать константу math.pi
+
+
+#метод монте-карло
+
 # import random
-
-# r= 1#радиус
-
-# r2=r**2# площадь квадрата
 # pi=0
-# n=100000# Колво попроров
+# n=1000000# Колво попроров
 # x=0
 # y=0
 # res=0
@@ -24,13 +24,11 @@
 #     if (x*x+y*y) <=1:
 #         res=res+1
 # pi = 4*(res/n)   
-# print(pi)
+# print(round(pi,n))
 
 
 
-# n = 10
-
-
+#ряд Нилаканта
 def input_int_in_range ():
     while True:
         try:
@@ -44,13 +42,27 @@ def input_int_in_range ():
             print("Введённое число вне диапазона")
 
 def get_pi(num_after_decimal_point):
-    n=10**(num_after_decimal_point+2)
-    pi=0
-    for n in range(0,100000):
-          pi=pi+((-1)**n)/(2*n+1)
-    return pi*4
+    pi = 3.00
+    num1 = 2
+    num2 = 3
+    num3 = 4
+    n=1
+    k= 1/10**(num_after_decimal_point+5)
+    while k<n:
+        n = 4 / (num1 * num2 * num3)
+        num1 += 2
+        num2 += 2
+        num3 += 2
+        n -= 4 / (num1 * num2 * num3)
+        num1 += 2
+        num2 += 2
+        num3 += 2
+        pi+=n
+    return pi
 n=input_int_in_range()
 pi = get_pi(n)
+print(3,14159265358979323846 )
+print(pi)
 print(round(pi,n))
 
 

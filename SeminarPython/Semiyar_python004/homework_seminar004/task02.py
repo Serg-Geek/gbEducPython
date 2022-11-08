@@ -25,7 +25,4 @@ def simple_mult(n):
     if n>1:
         result.append(n)
     return result
-
-
-
 print(simple_mult(input()))

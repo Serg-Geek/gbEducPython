@@ -9,16 +9,13 @@
 # k=5 -> 3x⁵ + 5x⁴ - 6x³ - 3x = 0
 from random import randint
 
-def input_int_in_range():
+def input_int():
     while True:
         try:
-            n = int(input("Введите числовое значение дня недели от 1 до 7: "))            
+            n = int(input("Введите мах cтепень многочлена: ")) 
+            return n            
         except ValueError:
-            print("Вы ввели не число. Попробуйте снова.")    
-        else:
-            if -100<= n <= 100:
-                return n
-            print("Введённое число вне диапазона")
+            print("Вы ввели не число. Попробуйте снова.") 
 
 def create_list(k):
     lst = []
@@ -46,8 +43,7 @@ def create_str(sp):
             elif i == len(lst) - 1 and lst[i] == 0:
                 wr += ' = 0'
     return wr
-
-k=create_list(input_int_in_range())
+k=create_list(input_int())
 poly=create_str(k)
 with open('/home/user/Python/gbEducPython/SeminarPython/Semiyar_python004/homework_seminar004/task04.txt', 'w') as data:
         data.write(poly)
