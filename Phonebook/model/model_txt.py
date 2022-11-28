@@ -8,11 +8,11 @@ tel = {}
 def init():
     # global nam
     # global tel
-    with open(db_setting["path"] + db_setting["tab_name"], "r") as data:
+    with open(db_setting["path"] + db_setting["tab_name"]+ db_setting['db_format'], "r") as data:
         for line in data:
             key, value = line.replace("\n", "").split(".", 2)
             nam[int(key)] = value.strip()
-    with open(db_setting["path"] + db_setting["tab_tel"], "r") as data:
+    with open(db_setting["path"] + db_setting["tab_tel"]+ db_setting['db_format'], "r") as data:
         for line in data:
             key, value = line.replace("\n", "").split(".", 2)
             tel[int(key)] = value.strip()
@@ -69,10 +69,10 @@ def add_tel(id, value):  # добфвляум tel в бд
 
 def save_changes_in_DB(dct_type):
     if dct_type == "nam":
-        with open(db_setting["path"] + db_setting["tab_name"], "w") as data:
+        with open(db_setting["path"] + db_setting["tab_name"]+ db_setting['db_format'], "w") as data:
             for k, v in nam.items():
                 data.write("{}. {}\n".format(k, v))
     elif dct_type == "tel":
-        with open(db_setting["path"] + db_setting["tab_tel"], "w") as data:
+        with open(db_setting["path"] + db_setting["tab_tel"]+ db_setting['db_format'], "w") as data:
             for k, v in tel.items():
                 data.write("{}. {}\n".format(k, v))

@@ -8,14 +8,14 @@ tel = {}
 def init():
     global nam
     global tel
-    with open(set.db_setting["path"] + set.db_setting["tab_name"], "r") as data:
+    with open(set.db_setting["path"] + set.db_setting["tab_name"]+ set.db_setting['db_format'], "r") as data:
         data_nam = data.read()  # get str
 
         nam = json.loads(data_nam)
         # for line in data:
         #     key, value = line.replace('\n','').split('.',2)
         #     nam[int(key)] = value.strip()
-    with open(set.db_setting["path"] + set.db_setting["tab_tel"], "r") as data:
+    with open(set.db_setting["path"] + set.db_setting["tab_tel"]+ set.db_setting['db_format'], "r") as data:
         data_tel = data.read()  # get str
         tel = json.loads(data_tel)
         # for line in data:
@@ -80,8 +80,8 @@ def add_tel(id, value):  # добфвляум tel в бд
 
 def save_changes_in_DB(dct_type):
     if dct_type == "nam":
-        with open(set.db_setting["path"] + set.db_setting["tab_name"], "w") as data:
+        with open(set.db_setting["path"] + set.db_setting["tab_name"]+ set.db_setting['db_format'], "w") as data:
             data.write(json.dumps(nam))
     elif dct_type == "tel":
-        with open(set.db_setting["path"] + set.db_setting["tab_tel"], "w") as data:
+        with open(set.db_setting["path"] + set.db_setting["tab_tel"]+ set.db_setting['db_format'], "w") as data:
             data.write(json.dumps(tel))
