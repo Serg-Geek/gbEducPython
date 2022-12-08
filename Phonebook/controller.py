@@ -14,6 +14,7 @@ def start():
             f"5 -  find phone\n"
             f"6 -  add Person\n"
             f'7 -  edit Person\n'
+            
             f'0 -  exit'
         )
         
