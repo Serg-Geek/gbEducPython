@@ -60,7 +60,7 @@ def add_name(value):  # добфвляум имя в бд
             new_id = int(k)
     nam[new_id + 1] = value
     save_changes_in_DB("nam")
-
+    return new_id+1
 
 def add_tel(id, value):  # добфвляум tel в бд
     tel[id] = value

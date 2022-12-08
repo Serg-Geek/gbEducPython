@@ -55,9 +55,10 @@ def get_tel_keys(a):  # принимает имя , возвращает спи�
 
 def add_name(value):  # добфвляум имя в бд
     if db_setting["db_format"] == "txt":
-        m_txt.add_name(value)
+        return m_txt.add_name(value)
+
     elif db_setting["db_format"] == "json":
-        m_json.add_name(value)
+        return m_json.add_name(value)
 
 
 def add_tel(id, value):  # добфвляум tel в бд
@@ -65,3 +66,28 @@ def add_tel(id, value):  # добфвляум tel в бд
         m_txt.add_tel(id, value)
     elif db_setting["db_format"] == "json":
         m_json.add_tel(id, value)
+
+
+def add_birth(id, value):  # добфвляум имя в бд
+    if db_setting["db_format"] == "txt":
+        return m_txt.add_birth(id,value)
+
+    elif db_setting["db_format"] == "json":
+        return m_json.add_birth(id,value)
+
+
+# принимает id возвращает словарь с даннымии
+def get_record(id):
+    if db_setting["db_format"] == "txt":
+        return m_txt.get_record(id)
+
+    elif db_setting["db_format"] == "json":
+        return m_json.get_record(id)
+
+def edit_name(id,new_name):
+    if db_setting["db_format"] == "txt":
+        return m_txt.edit_nam(id,new_name)
+
+    elif db_setting["db_format"] == "json":
+        return m_json.edit_name(id,new_name)
+    

@@ -6,9 +6,13 @@ def showinfo(a):
 
 
 
-def get_numb():
+def get_numb(pr):
+    if len(pr) > 0:
+        print(pr)
     return input()
-def get_str():
+def get_str(pr):
+    if len(pr) > 0:
+        print(pr)
     a = str(input())
     return a
 
