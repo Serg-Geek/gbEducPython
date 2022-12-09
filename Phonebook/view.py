@@ -9,7 +9,7 @@ def showinfo(a):
 def get_numb(pr):
     if len(pr) > 0:
         print(pr)
-    return input()
+    return int(input())
 def get_str(pr):
     if len(pr) > 0:
         print(pr)

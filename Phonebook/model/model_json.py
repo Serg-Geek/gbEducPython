@@ -8,12 +8,7 @@ def init():
     with open(set.db_setting["path"] + set.db_setting["base"]+ set.db_setting['db_format'], "r") as data:
         data_nam = data.read()  # get str
         base = json.loads(data_nam)
-        
-    # with open(set.db_setting["path"] + set.db_setting["tab_tel"]+ set.db_setting['db_format'], "r") as data:
-    #     data_tel = data.read()  # get str
-    #     base['tel'] = json.loads(data_tel)
-        
-
+    
 
 def get_all_data():  # Возвращает форматированный словарь с ФИО И № тел
     dct_all = base["nam"].copy()
@@ -25,7 +20,7 @@ def get_all_data():  # Возвращает форматированный сл�
 def match_by_id(a_keys):  # принимает список ключей возвращает форматированную строку с ФИО и №тел
     st = []
     for key in a_keys:
-        st.append(base['nam'][key] + "------" + base["tel"].get(key, ""))
+        st.append(base['nam'][key] + "------" + base["birth"].get(key,"")+ "г.р."+ "----" + base["tel"].get(key, ""))
     return st
 
 # принимает id возвращает словарь с даннымии
@@ -47,8 +42,8 @@ def edit_birth(id, birth):
     base["birth"][id] = birth
     save_changes_in_DB()
 
-def birth(id, tel):
-    base["nam"][id] = tel
+def edit_tel(id, tel):
+    base["tel"][id] = tel
     save_changes_in_DB()
 
 
@@ -95,11 +90,5 @@ def add_birth(id,value):  # добфвляум дату рождения в бд
 
 
 def save_changes_in_DB():
-    # if dct_type == "nam":
-    #     with open(set.db_setting["path"] + set.db_setting["tab_name"]+ set.db_setting['db_format'], "w") as data:
-    #         data.write(json.dumps(base['nam']))
-    # elif dct_type == "tel":
-    #     with open(set.db_setting["path"] + set.db_setting["tab_tel"]+ set.db_setting['db_format'], "w") as data:
-    #         data.write(json.dumps(base['tel']))
     with open(set.db_setting["path"] + set.db_setting["base"]+ set.db_setting['db_format'], "w") as data:
         data.write(json.dumps(base))

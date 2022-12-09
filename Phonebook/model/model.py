@@ -9,13 +9,11 @@ def init():
     elif db_setting["db_format"] == "json":
         m_json.init()
 
-
 def get_all_data():  # Возвращает форматированный словарь с ФИО И № тел
     if db_setting["db_format"] == "txt":
         return m_txt.get_all_data()
     elif db_setting["db_format"] == "json":
         return m_json.get_all_data()
-
 
 def match_by_id(a_keys):  # принимает список ключей возвращает форматированную строку с ФИО и №тел
     if db_setting["db_format"] == "txt":
@@ -24,20 +22,17 @@ def match_by_id(a_keys):  # принимает список ключей воз�
     elif db_setting["db_format"] == "json":
         return m_json.match_by_id(a_keys)
 
-
 def view_all_name():
     if db_setting["db_format"] == "txt":
         return m_txt.view_all_name()
     elif db_setting["db_format"] == "json":
         return m_json.view_all_name()
 
-
 def view_all_tel():
     if db_setting["db_format"] == "txt":
         return m_txt.view_all_tel()
     elif db_setting["db_format"] == "json":
         return m_json.view_all_tel()
-
 
 def find_nam_keys(a):  # принимает имя , возвращает список с ключами
     if db_setting["db_format"] == "txt":
@@ -70,10 +65,10 @@ def add_tel(id, value):  # добфвляум tel в бд
 
 def add_birth(id, value):  # добфвляум имя в бд
     if db_setting["db_format"] == "txt":
-        return m_txt.add_birth(id,value)
+        m_txt.add_birth(id,value)
 
     elif db_setting["db_format"] == "json":
-        return m_json.add_birth(id,value)
+        m_json.add_birth(id,value)
 
 
 # принимает id возвращает словарь с даннымии
@@ -86,8 +81,24 @@ def get_record(id):
 
 def edit_name(id,new_name):
     if db_setting["db_format"] == "txt":
-        return m_txt.edit_nam(id,new_name)
+        m_txt.edit_name(id,new_name)
 
     elif db_setting["db_format"] == "json":
-        return m_json.edit_name(id,new_name)
+        m_json.edit_name(id,new_name)
+
+def edit_birth(id, birth):
+
+    if db_setting["db_format"] == "txt":
+        m_txt.edit_birth(id,birth)
+
+    elif db_setting["db_format"] == "json":
+        m_json.edit_birth(id,birth)
+
+def edit_tel(id, tel):
+    if db_setting["db_format"] == "txt":
+        m_txt.edit_tel(id,tel)
+
+    elif db_setting["db_format"] == "json":
+        m_json.edit_tel(id,tel)
+
     

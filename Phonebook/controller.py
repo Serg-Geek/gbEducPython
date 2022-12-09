@@ -1,7 +1,6 @@
 import view
 import model.model as model
 
-
 def start():
     view.showinfo("hello! ")
     while True:
@@ -14,7 +13,6 @@ def start():
             f"5 -  find phone\n"
             f"6 -  add Person\n"
             f'7 -  edit Person\n'
-            
             f'0 -  exit'
         )
         
